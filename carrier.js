@@ -8,7 +8,7 @@
 module.exports = function (creep) {
 	if(creep.energy === 0) {
 	    if (creep.memory.target === null || !(creep.memory.target in Game.creeps)) {
-	        var creeps = creep.room.find(Game.MY_CREEPS);
+	        var creeps = creep.room.find(MY_CREEPS);
 	        var besttarget = null;
 	        var maxwaiting = 0;
 	        for (var i=0;i<creeps.length;i++) {
