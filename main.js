@@ -2,10 +2,12 @@ var harvester = require('harvester');
 var builder = require('builder');
 var guard = require('guard');
 var carrier = require('carrier');
+var healer = require('healer');
 var nharvester = 0;
 var nbuilder = 0;
 var nguard = 0;
 var ncarrier = 0;
+var nhealer = 0;
 
 var ncreeps=0;
 
@@ -28,10 +30,15 @@ for(var cname in Game.creeps) {
 	    nguard++;
 	}
 
-	if (creep.memory.role == 'carrier') {
+  if (creep.memory.role == 'carrier') {
 	    carrier(creep);
 	    ncarrier++;
-    }
+  }
+
+  if (creep.memory.role == 'healer') {
+      healer(creep);
+      nhealer++;
+  }
 }
 for (var sname in Game.spawns) {
     var spawn = Game.spawns[sname];
@@ -60,6 +67,12 @@ for (var sname in Game.spawns) {
                 newnum++;
             }
             spawn.createCreep(  [TOUGH, ATTACK, MOVE, ATTACK, MOVE], 'Guard'+newnum, {role:'guard'} );
+        } else if (nhealer<ncreeps*0.2) {
+            var newnum=1;
+            while (("Healer"+newnum) in Game.creeps) {
+                newnum++;
+            }
+            spawn.createCreep(  [MOVE, MOVE, HEAL], 'Healer'+newnum, {role:'healer'} );
         }
     }
 }

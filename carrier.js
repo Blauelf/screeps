@@ -28,7 +28,7 @@ module.exports = function (creep) {
 						creep.move(1+Math.floor(8*Math.random()));
 				}
 		}
-		else {
+		else if (creep.energy == creep.energyCapacity){
 				creep.moveTo(Game.spawns.Spawn1);
 				creep.transferEnergy(Game.spawns.Spawn1);
 		}
