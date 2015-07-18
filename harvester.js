@@ -13,7 +13,7 @@ module.exports = function (creep) {
 		var bestpath = creep.room.findPath(creep.pos,bestsource.pos);
 		for (var i = 1; i < sources.length; i++) {
 		    var path = creep.room.findPath(creep.pos,sources[i].pos);
-		    if (bestpath.length === 0 || (path.length > 0 && bestpath.length > path.length)) {
+		    if (bestpath.length === 0 || (path.length > 0 && (bestsource.energy==0 && sources[i].energy>0 || bestpath.length > path.length))) {
 		        bestsource = sources[i];
 		        bestpath = path;
 		    }

@@ -42,7 +42,7 @@ for (var sname in Game.spawns) {
                 newnum++;
             }
             spawn.createCreep( 	[WORK, WORK, CARRY, CARRY, MOVE], 'Worker'+newnum, {role:'harvester'} );
-        } else if (ncarrier<nharvester*2) {
+        } else if (ncarrier<nharvester) {
             var newnum=1;
             while (("Carrier"+newnum) in Game.creeps) {
                 newnum++;
