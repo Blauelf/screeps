@@ -22,12 +22,12 @@ for(var cname in Game.creeps) {
 	    builder(creep);
 	    nbuilder++;
 	}
-	
+
 	if(creep.memory.role == 'guard') {
 	    guard(creep);
 	    nguard++;
 	}
-	
+
 	if (creep.memory.role == 'carrier') {
 	    carrier(creep);
 	    ncarrier++;
@@ -41,25 +41,25 @@ for (var sname in Game.spawns) {
             while (("Worker"+newnum) in Game.creeps) {
                 newnum++;
             }
-            spawn.createCreep( 	[Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], 'Worker'+newnum, {role:'harvester'} );
+            spawn.createCreep( 	[WORK, WORK, CARRY, CARRY, MOVE], 'Worker'+newnum, {role:'harvester'} );
         } else if (ncarrier<nharvester*2) {
             var newnum=1;
             while (("Carrier"+newnum) in Game.creeps) {
                 newnum++;
             }
-            spawn.createCreep( 	[Game.CARRY, Game.CARRY, Game.MOVE], 'Carrier'+newnum, {role:'carrier'} );
+            spawn.createCreep( 	[CARRY, CARRY, MOVE], 'Carrier'+newnum, {role:'carrier'} );
         } else if (nbuilder<ncreeps*0.3) {
             var newnum=1;
             while (("Builder"+newnum) in Game.creeps) {
                 newnum++;
             }
-            spawn.createCreep(  [Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], 'Builder'+newnum, {role:'builder'} );
+            spawn.createCreep(  [WORK, WORK, CARRY, CARRY, MOVE], 'Builder'+newnum, {role:'builder'} );
         } else if (nguard<ncreeps*0.3) {
             var newnum=1;
             while (("Guard"+newnum) in Game.creeps) {
                 newnum++;
             }
-            spawn.createCreep(  [Game.TOUGH, Game.ATTACK, Game.MOVE, Game.ATTACK, Game.MOVE], 'Guard'+newnum, {role:'guard'} );
+            spawn.createCreep(  [TOUGH, ATTACK, MOVE, ATTACK, MOVE], 'Guard'+newnum, {role:'guard'} );
         }
     }
 }
