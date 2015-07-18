@@ -48,7 +48,7 @@ for (var sname in Game.spawns) {
                 newnum++;
             }
             spawn.createCreep( 	[CARRY, CARRY, MOVE], 'Carrier'+newnum, {role:'carrier'} );
-        } else if (nbuilder<ncreeps*0.3) {
+        } else if (nbuilder<ncreeps*0.2) {
             var newnum=1;
             while (("Builder"+newnum) in Game.creeps) {
                 newnum++;
