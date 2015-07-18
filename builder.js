@@ -55,9 +55,9 @@ module.exports = function (creep) {
 		    }
 			return;
 		}
+  	if(creep.room.controller && creep.room.controller.progress<creep.room.controller.progressTotal) {
+      creep.moveTo(creep.room.controller);
+      creep.upgradeController(creep.room.controller);
+    }
 	}
-  if(creep.room.controller) {
-    creep.moveTo(creep.room.controller);
-    creep.upgradeController(creep.room.controller);
-  }
 }

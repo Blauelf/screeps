@@ -27,9 +27,11 @@ module.exports = function (creep) {
 				} else {
 						creep.move(1+Math.floor(8*Math.random()));
 				}
-		}
-		else if (creep.energy == creep.energyCapacity){
-				creep.moveTo(Game.spawns.Spawn1);
-				creep.transferEnergy(Game.spawns.Spawn1);
+		} else {
+		    var spawn = creep.pos.findClosest(FIND_MY_SPAWNS);
+		    if (creep.energy == creep.energyCapacity)
+				creep.moveTo(spawn);
+		    if (creep.pos.isNearTo(spawn))
+				creep.transferEnergy(spawn);
 		}
 }
