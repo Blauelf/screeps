@@ -6,9 +6,9 @@
  * var mod = require('guard'); // -> 'a thing'
  */
 module.exports = function (creep) {
-	var targets = creep.room.find(FIND_HOSTILE_CREEPS);
+	var targets = creep.room.findClosest(FIND_HOSTILE_CREEPS);
 	if(targets.length) {
-		creep.moveTo(targets[0]);
-		creep.attack(targets[0]);
+		creep.moveTo(targets);
+		creep.attack(targets);
 	}
 }

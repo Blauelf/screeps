@@ -36,7 +36,7 @@ for(var cname in Game.creeps) {
 for (var sname in Game.spawns) {
     var spawn = Game.spawns[sname];
     if (spawn.spawning===null) {
-        if (nharvester<1 || nharvester<ncreeps*0.1) {
+        if (nharvester<2 || nharvester<ncreeps*0.1) {
             var newnum=1;
             while (("Worker"+newnum) in Game.creeps) {
                 newnum++;
@@ -53,7 +53,7 @@ for (var sname in Game.spawns) {
             while (("Builder"+newnum) in Game.creeps) {
                 newnum++;
             }
-            spawn.createCreep(  [WORK, WORK, CARRY, CARRY, MOVE], 'Builder'+newnum, {role:'builder'} );
+            spawn.createCreep(  [WORK, CARRY, CARRY, CARRY, MOVE], 'Builder'+newnum, {role:'builder'} );
         } else if (nguard<ncreeps*0.3) {
             var newnum=1;
             while (("Guard"+newnum) in Game.creeps) {
