@@ -56,4 +56,8 @@ module.exports = function (creep) {
 			return;
 		}
 	}
+  if(creep.room.controller) {
+    creep.moveTo(creep.room.controller);
+    creep.upgradeController(creep.room.controller);
+  }
 }

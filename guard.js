@@ -11,4 +11,8 @@ module.exports = function (creep) {
 		creep.moveTo(target);
 		creep.attack(target);
 	}
+	if (creep.hits<creep.hitsMax/2) {
+		var target = creep.pos.findClosest(FIND_MY_SPAWNS);
+		if(target){creep.moveTo(target);}
+	}
 }
