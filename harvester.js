@@ -8,7 +8,7 @@
 module.exports = function (creep) {
 
 	if(creep.energy < creep.energyCapacity) {
-		var sources = creep.room.find(SOURCES);
+		var sources = creep.room.find(FIND_SOURCES);
 		var bestsource = sources[0];
 		var bestpath = creep.room.findPath(creep.pos,bestsource.pos);
 		for (var i = 1; i < sources.length; i++) {
@@ -23,7 +23,7 @@ module.exports = function (creep) {
 		creep.memory.waiting=0;
 	}
 	else {
-	    var creeps = creep.room.find(MY_CREEPS);
+	    var creeps = creep.room.find(FIND_MY_CREEPS);
 	    for (var i=0;i<creeps.length;i++) {
 	        if ((creeps[i].memory.role==='carrier' || creeps[i].memory.role==='builder') && creep.pos.isNearTo(creeps[i])) {
 	            creep.transferEnergy(creeps[i]);

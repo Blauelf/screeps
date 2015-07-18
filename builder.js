@@ -11,7 +11,7 @@ module.exports = function (creep) {
 		Game.spawns.Spawn1.transferEnergy(creep);
 	}
 	else {
-		var target = creep.pos.findClosest(MY_STRUCTURES, {
+		var target = creep.pos.findClosest(FIND_MY_STRUCTURES, {
             filter : function (site) {
                 return site.hits<site.hitsMax/2;
             }
@@ -20,12 +20,12 @@ module.exports = function (creep) {
 			creep.repair(target);
 			return;
 		}
-		target = creep.pos.findClosest(CONSTRUCTION_SITES);
+		target = creep.pos.findClosest(FIND_CONSTRUCTION_SITES);
 		if(target !== null && creep.pos.isNearTo(target.pos)) {
 			creep.build(target);
 			return;
 		}
-		target = creep.pos.findClosest(MY_STRUCTURES, {
+		target = creep.pos.findClosest(FIND_MY_STRUCTURES, {
             filter : function (site) {
                 return site.hits<site.hitsMax/2;
             }
@@ -35,13 +35,13 @@ module.exports = function (creep) {
 			creep.repair(target);
 			return;
 		}
-		target = creep.pos.findClosest(CONSTRUCTION_SITES);
+		target = creep.pos.findClosest(FIND_CONSTRUCTION_SITES);
 		if(target !== null) {
 		    creep.move(target.pos);
 			creep.build(target);
 			return;
 		}
-		target = creep.pos.findClosest(MY_STRUCTURES, {
+		target = creep.pos.findClosest(FIND_MY_STRUCTURES, {
             filter : function (site) {
                 return site.hits<site.hitsMax;
             }
